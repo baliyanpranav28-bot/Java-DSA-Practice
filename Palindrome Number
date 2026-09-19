@@ -1,0 +1,23 @@
+class Solution {
+    public static boolean isPalindrome(int x) {
+        if( x < 0){
+            return false;
+        }
+        int original = x;
+        int reverse = 0;
+        while (x != 0) {
+            int digit = x % 10;            // find last digit
+             reverse = reverse * 10 + digit; // put in reversed number
+            x = x/10;                       // Remove the last digit
+        }
+        if(original == reverse){
+            return true;
+        }
+        return false;
+    }
+    public static void main(String args[]){
+        int x = 121;
+        boolean result = isPalindrome(x);
+        System.out.print(result);
+    }
+}
