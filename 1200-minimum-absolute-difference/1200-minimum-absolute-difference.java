@@ -1,18 +1,17 @@
 class Solution {
     public List<List<Integer>> minimumAbsDifference(int[] arr) {
-        Arrays.sort(arr);
-        List<List<Integer>> result = new ArrayList<>();
-        int minDiff = Integer.MAX_VALUE;
-        // Find minimum difference 
-        for (int i = 0; i < arr.length - 1; i++) {
-            int diff = arr[i + 1] - arr[i];
-            minDiff = Math.min(minDiff, diff);
+       Arrays.sort(arr);
+       int min = Integer.MAX_VALUE;
+       List<List<Integer>> res = new ArrayList<>();
+       for(int i=0; i<arr.length-1; i++){
+        int diff = arr[i+1] - arr[i];
+        min = Math.min(min,diff);
+       }
+       for(int i=0; i<arr.length-1; i++){
+        if(arr[i+1] - arr[i] == min){
+            res.add(Arrays.asList(arr[i], arr[i+1]));
         }
-        for (int i = 0; i < arr.length - 1; i++) {
-            if (arr[i + 1] - arr[i] == minDiff) {
-                result.add(Arrays.asList(arr[i], arr[i + 1]));
-            }
-        }
-        return result;
+       }
+       return res;
     }
 }
