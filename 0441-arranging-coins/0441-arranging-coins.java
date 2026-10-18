@@ -1,24 +1,21 @@
 class Solution {
-    private int Sqrt(long x) {
-        if (x == 0 || x == 1) {
-            return (int) x;
-        }
-        long left = 1;
-        long right = x;
-        long ans = 0;
+    public int arrangeCoins(int n) {
+        long left = 0;
+        long right = n;
+        
         while (left <= right) {
-            long mid = left + (right - left) / 2; 
-            if (mid <= x / mid) {
-                ans = mid;
-                left = mid + 1;
-            } else {
+            long mid = left + (right - left) / 2;
+            long currentCoins = mid * (mid + 1) / 2;
+            
+            if (currentCoins == n) {
+                return (int) mid;
+            }
+            if (currentCoins > n) {
                 right = mid - 1;
+            } else {
+                left = mid + 1;
             }
         }
-        return (int) ans;
-    }
-    public int arrangeCoins(int n) {
-        long m = (long) n;
-        return (int) (Sqrt(8 * m + 1) - 1) / 2;
+        return (int) right;
     }
 }
