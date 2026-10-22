@@ -9,7 +9,7 @@ class Solution {
             int j = i - 1;
             int k = i + 1;
             while (j >= 0 && a[i] == a[j])
-                j++;
+                j--;
             while (k < n && a[i] == a[k])
                 k++;
             if (j >= 0 && k < n) {
