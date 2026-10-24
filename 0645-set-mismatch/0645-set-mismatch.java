@@ -3,7 +3,7 @@ class Solution {
         int n = nums.length;
         int duplicate = -1;
         int missing = -1;
-        for (int i = 0; i <= n; i++) {
+        for (int i = 1; i <= n; i++) {
             int count = 0;
             for (int num : nums) {
                 if (num == i) {
