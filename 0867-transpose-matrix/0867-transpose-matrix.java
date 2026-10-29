@@ -8,6 +8,6 @@ class Solution {
                 arr[i][j] = matrix[j][i];
             }
         }
-        return arr;
+        return arr; // or we can do swapping just in left triangle matrix
     }
 }
